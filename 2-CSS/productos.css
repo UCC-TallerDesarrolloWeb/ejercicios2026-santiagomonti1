@@ -3,6 +3,34 @@ body {
     margin: 0;
     padding: 30px;
     background-color: #f4f4f4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "item1 item1 item1 item1"
+        "item2 item2 item2 item2"
+        "item3 item4 item4 item4"
+        "item5 item5 item5 item5";
+    gap: 20px;
+}
+
+.item1 {
+    grid-area: item1;
+}
+
+.item2 {
+    grid-area: item2;
+}
+
+.item3 {
+    grid-area: item3;
+}
+
+.item4 {
+    grid-area: item4;
+}
+
+.item5 {
+    grid-area: item5;
 }
 
 h1 {
@@ -14,8 +42,6 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
-    max-width: 1100px;
-    margin: 30px auto 0;
 }
 
 .tarjeta {
