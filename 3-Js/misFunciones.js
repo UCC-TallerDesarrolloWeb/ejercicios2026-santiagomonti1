@@ -32,6 +32,47 @@ function cambiarUnidades(id, valor){
     }
 }
 
+/* Refactorizacion del codigo de conversion de unidades */
+convertirUnidades = (id,valor) => {
+    let met, pul, pie, yar;
+
+    if(valor.includes(",")){
+        valor = valor.replace(",", ".")
+    }
+    if(isNaN(valor)){
+        alert("El valor ingresado es incorrecto");
+        met = "";
+        pul = "";
+        pie = "";
+        yar = "";
+    }else if(id==="metro"){
+        met = valor;
+        pul = valor*39.3701;
+        pie = valor*3.28084;
+        yar = valor*1.09361;
+    }else if(id==="pulgada"){
+        pul = valor;
+        met = valor*0.0254;
+        pie = valor*0.0833333;
+        yar = valor*0.0277778
+    }
+    else if(id==="pie"){
+        pie = valor;
+        met = 0.3048*valor;
+        pul = 12*valor;
+        yar = 0.333333*valor;
+    }else if(id==="yarda"){
+        yar = valor;
+        met = 0.9144*valor;
+        pul = 36*valor;
+        pie = 3*valor;
+    }
+    document.lasUnidades.unid_metro.value = Math.round(met*100)/100;
+    document.lasUnidades.unid_pulgada.value = Math.round(pul*100)/100;
+    document.lasUnidades.unid_pie.value = Math.round(pie*100);
+    document.lasUnidades.unid_yarda.value = Math.round(yar);
+}
+
 function convertirGR(id){
     var grad, rad;
     if(id=="grados"){
