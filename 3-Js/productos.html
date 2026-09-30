@@ -22,31 +22,39 @@
         <fieldset>
             <legend>Busqueda</legend>
             <label for="search"></label>
-            <input type="text" name="search" id="search">
+            <input type="text" name="search" id="search" placeholder="Palabra..." onchange="filtrarProductos()">
         </fieldset>
         <fieldset>
             <p>
             <legend>Precios</legend>
             <label for="minimo"></label>
-            <input type="number" name="minimo" id="precio-min" min="0">
+            <input type="number" name="minimo" id="precio-min" min="0" onchange="filtrarProductos()">
             </p>
             <p>
             <label for="maximo"></label>
-            <input type="number" name="maximo" id="precio-max" min="0">
+            <input type="number" name="maximo" id="precio-max" min="0" onchange="filtrarProductos()">
             </p>
+        </fieldset>
+        <fieldset>
+            <legend>Marca</legend>
+            <select id="marca" onchange="filtrarProductos()">
+                <option value="Todas">Todas</option>
+                <option value="Gran Marc">Gran Marc</option>
+                <option value="Daedo">Daedo</option>
+            </select>
         </fieldset>
         <fieldset>
             <legend>Tipo de productos</legend>
             <p>
-                <input type="checkbox" name="tipo" id="protectores" value="protectores">    
+                <input type="checkbox" name="tipo" id="protectores" value="protectores" onchange="filtrarProductos()">    
                 <label for="protectores">Protectores</label>
             </p>
             <p>
-                <input type="checkbox" name="tipo" id="entrenamiento" value="entrenamiento">
+                <input type="checkbox" name="tipo" id="entrenamiento" value="entrenamiento" onchange="filtrarProductos()">
                 <label for="entrenamiento">Entrenamiento</label>
             </p>
             <p>
-                <input type="checkbox" id="dobok" name="tipo" value="dobok">
+                <input type="checkbox" id="dobok" name="tipo" value="dobok" onchange="filtrarProductos()">
                 <label for="dobok">Dobok</label>
             </p>
         </fieldset>
