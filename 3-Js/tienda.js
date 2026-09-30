@@ -110,18 +110,35 @@ let cerrarModal = () => {
 let cargarCarrito = () => {
   let carritoList = localStorage.getItem("carrito");
   let contenido = "";
+  let total = 0;
 
   if(carritoList == null){
     contenido = "<div>Su carrito esta vacio</div>"
   }else{
     carritoList = JSON.parse(carritoList);
 
-    carritoList.forEach((num, id) => {
+    const listProd = [];
+    const listCant = [];
+
+    carritoList.forEach((num) =>{
+      if(!listProd.includes(num)){
+        listProd.push(num);
+        listCant.push(1);
+      }else{
+        const inx = listProd.indexOf(num);
+        listCant[inx] += 1;
+      }
+    })
+
+    listProd.forEach((num, id) => {
       contenido += `<div><h3>${productos[num].nombre}</h3>
       <p>${formatPrice(productos[num].precio)}</p>
-      <button type = "button" onClick ="eliminarProducto(${id})">Eliminar Producto</button>
-      </div>`
+      <p>Cantidad:${listCant[id]}</p>
+      <button type = "button" onClick ="eliminarProducto(${num})">Eliminar Producto</button>
+      </div>`;
+      total += productos[num].precio * listCant[id];
     });
+    contenido += `Total: ${total}`;
     contenido += `<button type "button" onClick = "vaciarCarrito()">Vaciar carrito</button>`
   }
   
@@ -136,7 +153,11 @@ let vaciarCarrito = () => {
 let eliminarProducto = (id) => {
   let carritoList = localStorage.getItem("carrito");
   carritoList = JSON.parse(carritoList);
-  carritoList.splice(id, 1);
+
+  const inx = carritoList.indexOf(id);
+  if(inx > -1){
+    carritoList.splice(inx, 1);
+  }
 
   if(carritoList.length > 0){
     localStorage.setItem("carrito", JSON.stringify(carritoList));
