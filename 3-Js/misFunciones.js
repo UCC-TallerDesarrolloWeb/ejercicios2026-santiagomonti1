@@ -93,3 +93,12 @@ function mostrar_ocultar(valorMO){
         document.getElementById("divMO").style.display = `none`;
     }
 }
+
+/*Ejercicio productos*/ 
+let mostrarModal = () => {
+    document.getElementById("modal").style.display = "block"
+};
+
+let cerrarModal = () => {
+    document.getElementById("modal").style.display = "none"
+};
