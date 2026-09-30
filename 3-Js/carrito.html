@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="productos.css">
     <script type="text/javascript" src="tienda.js"></script>
 </head>
-<body onload="cargarCarrito()">
+<body onload="cargarCarrito();contarProductos()">
 
 <header class="item1">
     <h1>Carrito</h1>
@@ -16,7 +16,7 @@
     <a class="btn btn-catalogo" href="productos.html">Catálogo</a>
     <a class="btn btn-carrito" href="carrito.html">Carrito de Compras</a>
 </nav>
-
+<div id="cant-prod">0</div>
 <main class="item4" id="mostrar-carrito">
 
 </main>
