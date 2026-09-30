@@ -70,11 +70,21 @@ let cargarProductos = () => {
         <img src="images/${elemento.imagen}" alt="${elemento.nombre}">
         <h3>${elemento.nombre}</h3>
         <p>${elemento.precio}</p>
-        <button type="button" onclick="mostrarModal()">
+        <button type="button" onclick="mostrarModal(${id})">
             Ver detalle del producto
         </button>
     </div>`;
     });
 
     document.getElementById("contenedor-productos").innerHTML = contenido;
+};
+
+let mostrarModal = (id) => {
+  document.getElementById("titulo-producto").innerText = productos[id].nombre;
+  document.getElementById("descr-producto").innerText = productos[id].description;
+    document.getElementById("modal").style.display = "block"
+};
+
+let cerrarModal = () => {
+    document.getElementById("modal").style.display = "none"
 };
