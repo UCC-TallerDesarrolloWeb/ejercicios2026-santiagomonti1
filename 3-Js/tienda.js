@@ -73,11 +73,28 @@ let cargarProductos = () => {
         <button type="button" onclick="mostrarModal(${id})">
             Ver detalle del producto
         </button>
+        <button type="button" onclick="agregarAlcarrito(${id})">
+        Agregar al Carrito
+        </button>
     </div>`;
     });
 
     document.getElementById("contenedor-productos").innerHTML = contenido;
 };
+
+let agregarAlcarrito = (id) => {
+  let carritoList = localStorage.getItem("carrito");
+
+  if(carritoList == null){
+    carritoList = [];
+  } else{
+    carritoList = JSON.parse(carritoList);
+  }
+
+  carritoList.push(id);
+  console.log(carritoList);
+  localStorage.setItem("carrito", JSON.stringify(carritoList));
+}
 
 let mostrarModal = (id) => {
   document.getElementById("titulo-producto").innerText = productos[id].nombre;
@@ -87,4 +104,22 @@ let mostrarModal = (id) => {
 
 let cerrarModal = () => {
     document.getElementById("modal").style.display = "none"
+};
+
+let cargarCarrito = () => {
+  let carritoList = localStorage.getItem("carrito");
+  let contenido = "";
+
+  if(carritoList == null){
+    contenido = "<div>Su carrito esta vacio</div>"
+  }else{
+    carritoList = JSON.parse(carritoList);
+
+    carritoList.forEach((num) => {
+      contenido += `<div><h3>${productos[num].nombre}</h3>
+      <p>${productos[num].precio}</p></div>`
+    });
+  }
+
+  document.getElementById("mostrar-carrito").innerHTML = contenido;
 };
