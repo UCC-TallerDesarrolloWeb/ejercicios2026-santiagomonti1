@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import './styles/Login.scss'
 
 function Login() {
   // useNavigate permite cambiar de ruta desde el código
   const navigate = useNavigate()
+  // onLogin viene del Layout a través del <Outlet context>
+  const { onLogin } = useOutletContext()
 
   // Estado de los inputs (componentes controlados)
   const [usuario, setUsuario] = useState('')
@@ -15,6 +17,7 @@ function Login() {
 
     if (usuario === 'admin' && password === 'admin') {
       console.log('Login OK')
+      onLogin()
       navigate('/actividades')
     } else {
       console.log('Login Incorrecto')

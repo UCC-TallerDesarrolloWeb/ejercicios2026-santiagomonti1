@@ -6,8 +6,6 @@ $color-gris: #666666;
 $blanco: #ffffff;
 
 .actividades {
-  min-height: 100vh;
-  background-color: $color-fondo;
   padding: 40px 20px;
 
   h1 {
@@ -61,5 +59,21 @@ $blanco: #ffffff;
       color: $color-primario;
       font-size: 14px;
     }
+  }
+}
+
+.actividad-boton {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  color: $blanco;
+  background-color: $color-primario;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0062cc;
   }
 }

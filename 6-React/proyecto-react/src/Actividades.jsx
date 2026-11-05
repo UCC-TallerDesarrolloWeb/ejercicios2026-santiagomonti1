@@ -1,7 +1,15 @@
+import { useOutletContext } from 'react-router-dom'
 import { activities, diasSemana } from './data/actividades.js'
 import './styles/Actividades.scss'
 
 function Actividades() {
+  // logueado viene del Layout a través del <Outlet context>
+  const { logueado } = useOutletContext()
+
+  const inscribirse = (nombre) => {
+    alert(`Te inscribiste en ${nombre}`)
+  }
+
   return (
     <div className="actividades">
       <h1>Actividades</h1>
@@ -31,6 +39,13 @@ function Actividades() {
                 ))}
               </tbody>
             </table>
+
+            {/* Punto 4: el botón solo se muestra si el usuario está logueado */}
+            {logueado && (
+              <button className="actividad-boton" onClick={() => inscribirse(actividad.nombre)}>
+                Inscribirme
+              </button>
+            )}
           </div>
         ))}
       </div>
