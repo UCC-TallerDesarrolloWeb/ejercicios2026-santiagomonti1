@@ -1,0 +1,56 @@
+/*
+  Punto 3: versión básica con CSS tradicional.
+  Ya no se importa: Login.jsx usa la versión SASS (styles/Login.scss).
+  Para probar esta versión, cambiá el import en Login.jsx por: import './Login.css'
+*/
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.login-card {
+  background-color: #ffffff;
+  width: 320px;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-card h2 {
+  text-align: center;
+  color: #222222;
+  margin: 0 0 10px;
+}
+
+.login-card input {
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.login-card button {
+  padding: 12px;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  background-color: #0062cc;
+}
