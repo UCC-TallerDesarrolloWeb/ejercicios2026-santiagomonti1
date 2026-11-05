@@ -1,0 +1,61 @@
+// Punto 6: el mismo estilo de Login.css adaptado a SASS
+// (variables + anidación + &)
+
+$color-primario: #007bff;
+$color-primario-hover: #0062cc;
+$color-fondo: #f0f0f0;
+$color-borde: #cccccc;
+$color-texto: #222222;
+$blanco: #ffffff;
+$radio: 5px;
+
+.login-container {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-fondo;
+}
+
+.login-card {
+  background-color: $blanco;
+  width: 320px;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  h2 {
+    text-align: center;
+    color: $color-texto;
+    margin: 0 0 10px;
+  }
+
+  input {
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid $color-borde;
+    border-radius: $radio;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primario;
+    }
+  }
+
+  button {
+    padding: 12px;
+    font-size: 15px;
+    color: $blanco;
+    background-color: $color-primario;
+    border: none;
+    border-radius: $radio;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-primario-hover;
+    }
+  }
+}
