@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Youtube</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5.3: incluye text-bg-dark y opacity-50 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .video {
+            width: 22rem;
+            transition: transform .3s;
+        }
+        /* Al pasar el mouse la card se agranda y queda por encima de las demás */
+        .video:hover {
+            transform: scale(1.08);
+            z-index: 1;
+        }
+        /* Los botones están ocultos (alto 0) y aparecen al pasar el mouse */
+        .action-buttons {
+            max-height: 0;
+            transition: max-height .3s;
+        }
+        .video:hover .action-buttons {
+            max-height: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container d-flex flex-wrap gap-1 my-5">
+
+    <!-- Video 1 -->
+    <div class="card video text-bg-dark text-white border-0 overflow-hidden">
+        <img class="card-img-top" src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/satoshito89_01.png" alt="Miniatura del video">
+        <div class="card-body p-2">
+            <div class="row p-1">
+                <div class="col-2">
+                    <img class="rounded-circle w-100" src="imagenes/avatar.svg" alt="Canal">
+                </div>
+                <div class="col-10">
+                    <h5 class="card-title fw-bold fs-6">Taller de Desarrollo Web - VaciarCarrito y EliminarProducto</h5>
+                    <a href="#" class="text-light text-decoration-none opacity-50 d-block small">Taller de Desarrollo Web - Otro Ejercicio</a>
+                    <span class="text-light opacity-50 small">230 vistas - 1 día</span>
+                </div>
+            </div>
+            <div class="action-buttons overflow-hidden">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#" class="btn btn-sm text-secondary fw-bold d-block w-100 p-2">VER MÁS TARDE</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#" class="btn btn-sm text-secondary fw-bold d-block w-100 p-2">AGREGAR A LA FILA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="card video text-bg-dark text-white border-0 overflow-hidden">
+        <img class="card-img-top" src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/satoshito89_01.png" alt="Miniatura del video">
+        <div class="card-body p-2">
+            <div class="row p-1">
+                <div class="col-2">
+                    <img class="rounded-circle w-100" src="imagenes/avatar.svg" alt="Canal">
+                </div>
+                <div class="col-10">
+                    <h5 class="card-title fw-bold fs-6">Taller de Desarrollo Web - VaciarCarrito y EliminarProducto</h5>
+                    <a href="#" class="text-light text-decoration-none opacity-50 d-block small">Taller de Desarrollo Web - Otro Ejercicio</a>
+                    <span class="text-light opacity-50 small">230 vistas - 1 día</span>
+                </div>
+            </div>
+            <div class="action-buttons overflow-hidden">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#" class="btn btn-sm text-secondary fw-bold d-block w-100 p-2">VER MÁS TARDE</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#" class="btn btn-sm text-secondary fw-bold d-block w-100 p-2">AGREGAR A LA FILA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="card video text-bg-dark text-white border-0 overflow-hidden">
+        <img class="card-img-top" src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/satoshito89_01.png" alt="Miniatura del video">
+        <div class="card-body p-2">
+            <div class="row p-1">
+                <div class="col-2">
+                    <img class="rounded-circle w-100" src="imagenes/avatar.svg" alt="Canal">
+                </div>
+                <div class="col-10">
+                    <h5 class="card-title fw-bold fs-6">Taller de Desarrollo Web - VaciarCarrito y EliminarProducto</h5>
+                    <a href="#" class="text-light text-decoration-none opacity-50 d-block small">Taller de Desarrollo Web - Otro Ejercicio</a>
+                    <span class="text-light opacity-50 small">230 vistas - 1 día</span>
+                </div>
+            </div>
+            <div class="action-buttons overflow-hidden">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#" class="btn btn-sm text-secondary fw-bold d-block w-100 p-2">VER MÁS TARDE</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#" class="btn btn-sm text-secondary fw-bold d-block w-100 p-2">AGREGAR A LA FILA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
