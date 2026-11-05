@@ -1,0 +1,28 @@
+$color-primario: #007bff;
+$color-texto: #222222;
+$color-gris: #666666;
+$blanco: #ffffff;
+
+.card {
+  background-color: $blanco;
+  width: 300px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid $color-primario;
+
+  &-titulo {
+    margin: 0 0 5px;
+    color: $color-texto;
+    text-transform: capitalize; // "taekwondo" -> "Taekwondo"
+  }
+
+  &-subtitulo {
+    margin: 0 0 20px;
+    color: $color-gris;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
