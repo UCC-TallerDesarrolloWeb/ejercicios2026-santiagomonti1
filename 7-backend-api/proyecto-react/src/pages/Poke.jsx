@@ -2,51 +2,64 @@ import { useEffect, useState } from 'react'
 import PokeCard from '@components/PokeCard.jsx'
 import '@styles/Poke.scss'
 
-const API_URL = 'https://pokeapi.co/api/v2/pokemon/bulbasaur'
+const API_URL = 'https://pokeapi.co/api/v2/pokemon'
+
+// Trae UN pokémon por id o nombre y devuelve solo los datos que usa la card
+const fetchPokemon = async (idONombre) => {
+  const res = await fetch(`${API_URL}/${idONombre}`)
+  if (!res.ok) throw new Error(`Error ${res.status} al pedir el pokémon ${idONombre}`)
+  const data = await res.json()
+
+  return {
+    id: data.id,
+    nombre: data.name,
+    imagen: data.sprites.front_default,
+    tipos: data.types.map((t) => t.type.name),
+    altura: data.height,
+    peso: data.weight,
+  }
+}
+
+// Trae los pokémon del 1 al 20.
+// Promise.all lanza los 20 fetch AL MISMO TIEMPO y espera a que terminen todos
+// (más rápido que pedirlos uno por uno), y devuelve los resultados en el mismo orden.
+const fetchAllPokemons = async (desde = 1, hasta = 20) => {
+  const ids = Array.from({ length: hasta - desde + 1 }, (_, i) => desde + i) // [1, 2, ..., 20]
+  return Promise.all(ids.map((id) => fetchPokemon(id)))
+}
 
 function Poke() {
-  const [pokemon, setPokemon] = useState(null)
+  const [pokemons, setPokemons] = useState([])
+  const [cargando, setCargando] = useState(true)
   const [error, setError] = useState(null)
 
   // useEffect con [] se ejecuta una sola vez, al montar la página
   useEffect(() => {
-    fetch(API_URL)
-      .then((res) => {
-        if (!res.ok) throw new Error(`Error ${res.status}`)
-        return res.json()
-      })
-      .then((data) => {
-        console.log(data) // para ver en la consola todo lo que devuelve la API
-        // De toda la respuesta nos quedamos solo con lo que necesita la card
-        setPokemon({
-          id: data.id,
-          nombre: data.name,
-          imagen: data.sprites.front_default,
-          tipos: data.types.map((t) => t.type.name),
-          altura: data.height,
-          peso: data.weight,
-        })
+    fetchAllPokemons(1, 20)
+      .then((lista) => {
+        console.log(lista)
+        setPokemons(lista)
       })
       .catch((err) => {
         console.error(err)
-        setError('No se pudo cargar el pokémon.')
+        setError('No se pudieron cargar los pokémon.')
       })
+      .finally(() => setCargando(false))
   }, [])
 
   return (
     <div className="poke">
       <h1>Pokémon</h1>
 
+      {cargando && <p className="poke-mensaje">Cargando...</p>}
       {error && <p className="poke-mensaje">{error}</p>}
-      {/* mientras pokemon sea null, todavía no llegó la respuesta */}
-      {!pokemon && !error && <p className="poke-mensaje">Cargando...</p>}
 
-      {pokemon && (
-        <div className="poke-lista">
-          {/* ...pokemon pasa cada propiedad del objeto como una prop */}
-          <PokeCard {...pokemon} />
-        </div>
-      )}
+      <div className="poke-lista">
+        {pokemons.map((pokemon) => (
+          // ...pokemon pasa cada propiedad del objeto como una prop
+          <PokeCard key={pokemon.id} {...pokemon} />
+        ))}
+      </div>
     </div>
   )
 }
