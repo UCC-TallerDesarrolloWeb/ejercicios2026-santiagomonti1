@@ -1,0 +1,55 @@
+$color-primario: #007bff;
+$color-borde: #e0e0e0;
+$color-texto: #222222;
+$blanco: #ffffff;
+
+.actividades {
+  padding: 40px 20px;
+
+  h1 {
+    text-align: center;
+    color: $color-texto;
+    margin: 0 0 30px;
+  }
+}
+
+.actividades-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+// Estilos del contenido que se pasa como children a la Card
+.horarios {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px 0;
+    border-bottom: 1px solid $color-borde;
+  }
+
+  th {
+    color: $color-primario;
+    font-size: 14px;
+  }
+}
+
+.actividad-boton {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  color: $blanco;
+  background-color: $color-primario;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0062cc;
+  }
+}

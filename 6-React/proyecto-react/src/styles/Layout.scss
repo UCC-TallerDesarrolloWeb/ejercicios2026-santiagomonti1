@@ -1,0 +1,79 @@
+$color-primario: #007bff;
+$color-oscuro: #1f2937;
+$color-fondo: #f0f0f0;
+$blanco: #ffffff;
+
+// El layout ocupa toda la pantalla y el main se estira para empujar el footer abajo
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  background-color: $color-fondo;
+}
+
+.header {
+  background-color: $color-oscuro;
+  color: $blanco;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  &-logo {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    a {
+      color: #cbd5e1;
+      text-decoration: none;
+
+      &:hover {
+        color: $blanco;
+      }
+
+      // NavLink pone la clase "active" en la ruta actual
+      &.active {
+        color: $blanco;
+        border-bottom: 2px solid $color-primario;
+      }
+    }
+  }
+
+  &-logout {
+    background-color: transparent;
+    color: $blanco;
+    border: 1px solid $blanco;
+    border-radius: 5px;
+    padding: 6px 14px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $blanco;
+      color: $color-oscuro;
+    }
+  }
+}
+
+.footer {
+  background-color: $color-oscuro;
+  color: #cbd5e1;
+  text-align: center;
+  font-size: 14px;
+  padding: 15px;
+
+  p {
+    margin: 0;
+  }
+}
