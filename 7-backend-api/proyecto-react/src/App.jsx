@@ -4,6 +4,7 @@ import Layout from '@components/Layout.jsx'
 import Home from '@pages/Home.jsx'
 import Login from '@pages/Login.jsx'
 import Actividades from '@pages/Actividades.jsx'
+import Poke from '@pages/Poke.jsx'
 
 function App() {
   // El estado del login vive acá para que lo compartan el Header y las páginas
@@ -26,6 +27,7 @@ function App() {
         <Route path="home" element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="actividades" element={<Actividades />} />
+        <Route path="poke" element={<Poke />} />
       </Route>
     </Routes>
   )

@@ -17,6 +17,7 @@ function Header({ logueado, onLogout }) {
         <NavLink to="/" end>Home</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/actividades">Actividades</NavLink>
+        <NavLink to="/poke">Pokémon</NavLink>
         {/* Punto 5: el botón de Logout solo aparece si está logueado */}
         {logueado && (
           <button className="header-logout" onClick={handleLogout}>

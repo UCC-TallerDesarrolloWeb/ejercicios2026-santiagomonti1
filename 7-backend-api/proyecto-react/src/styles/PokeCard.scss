@@ -1,0 +1,77 @@
+$blanco: #ffffff;
+$color-texto: #222222;
+$color-gris: #666666;
+
+// Colores por tipo de pokémon
+$tipos: (
+  grass: #78c850,
+  poison: #a040a0,
+  fire: #f08030,
+  water: #6890f0,
+  bug: #a8b820,
+  normal: #a8a878,
+  flying: #a890f0,
+  electric: #f8d030,
+  ground: #e0c068,
+  fairy: #ee99ac,
+);
+
+.poke-card {
+  position: relative;
+  background-color: $blanco;
+  width: 220px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  &-id {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    color: $color-gris;
+    font-size: 14px;
+  }
+
+  img {
+    width: 140px;
+    height: 140px;
+    image-rendering: pixelated; // el sprite es chico, así no se ve borroso
+  }
+
+  h3 {
+    margin: 5px 0 10px;
+    color: $color-texto;
+    text-transform: capitalize;
+  }
+
+  &-tipos {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  &-datos {
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+    color: $color-gris;
+  }
+}
+
+.poke-tipo {
+  color: $blanco;
+  background-color: $color-gris;
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  text-transform: capitalize;
+}
+
+// @each recorre el mapa y genera una clase por tipo: .poke-tipo-grass, .poke-tipo-fire, ...
+@each $nombre, $color in $tipos {
+  .poke-tipo-#{$nombre} {
+    background-color: $color;
+  }
+}

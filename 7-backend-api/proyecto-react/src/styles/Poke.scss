@@ -1,0 +1,21 @@
+.poke {
+  padding: 40px 20px;
+
+  h1 {
+    text-align: center;
+    color: #222222;
+    margin: 0 0 30px;
+  }
+
+  &-mensaje {
+    text-align: center;
+    color: #666666;
+  }
+
+  &-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
