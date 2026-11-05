@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom'
-import { activities, diasSemana } from './data/actividades.js'
-import './styles/Actividades.scss'
+import { activities, diasSemana } from '@data/actividades.js'
+import '@styles/Actividades.scss'
 
 function Actividades() {
   // logueado viene del Layout a través del <Outlet context>

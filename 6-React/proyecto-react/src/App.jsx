@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Layout from './Layout.jsx'
-import Home from './Home.jsx'
-import Login from './Login.jsx'
-import Actividades from './Actividades.jsx'
+import Layout from '@components/Layout.jsx'
+import Home from '@pages/Home.jsx'
+import Login from '@pages/Login.jsx'
+import Actividades from '@pages/Actividades.jsx'
 
 function App() {
   // El estado del login vive acá para que lo compartan el Header y las páginas

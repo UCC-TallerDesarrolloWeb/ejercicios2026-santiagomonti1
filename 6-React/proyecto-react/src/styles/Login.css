@@ -1,7 +1,7 @@
 /*
   Punto 3: versión básica con CSS tradicional.
   Ya no se importa: Login.jsx usa la versión SASS (styles/Login.scss).
-  Para probar esta versión, cambiá el import en Login.jsx por: import './Login.css'
+  Para probar esta versión, cambiá el import en pages/Login.jsx por: import '@styles/Login.css'
 */
 
 .login-container {
