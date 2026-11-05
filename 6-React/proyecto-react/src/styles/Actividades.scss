@@ -1,8 +1,6 @@
 $color-primario: #007bff;
-$color-fondo: #f0f0f0;
 $color-borde: #e0e0e0;
 $color-texto: #222222;
-$color-gris: #666666;
 $blanco: #ffffff;
 
 .actividades {
@@ -22,43 +20,21 @@ $blanco: #ffffff;
   gap: 20px;
 }
 
-.actividad-card {
-  background-color: $blanco;
-  width: 300px;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border-top: 4px solid $color-primario;
+// Estilos del contenido que se pasa como children a la Card
+.horarios {
+  width: 100%;
+  border-collapse: collapse;
 
-  h2 {
-    margin: 0 0 5px;
-    color: $color-texto;
-    text-transform: capitalize; // "taekwondo" -> "Taekwondo"
+  th,
+  td {
+    text-align: left;
+    padding: 8px 0;
+    border-bottom: 1px solid $color-borde;
   }
 
-  p {
-    margin: 0 0 20px;
-    color: $color-gris;
-    &::first-letter {
-      text-transform: uppercase;
-    }
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-
-    th,
-    td {
-      text-align: left;
-      padding: 8px 0;
-      border-bottom: 1px solid $color-borde;
-    }
-
-    th {
-      color: $color-primario;
-      font-size: 14px;
-    }
+  th {
+    color: $color-primario;
+    font-size: 14px;
   }
 }
 

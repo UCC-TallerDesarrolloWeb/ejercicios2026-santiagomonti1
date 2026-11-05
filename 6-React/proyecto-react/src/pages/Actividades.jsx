@@ -1,4 +1,5 @@
 import { useOutletContext } from 'react-router-dom'
+import Card from '@components/Card.jsx'
 import { activities, diasSemana } from '@data/actividades.js'
 import '@styles/Actividades.scss'
 
@@ -15,13 +16,14 @@ function Actividades() {
       <h1>Actividades</h1>
 
       <div className="actividades-lista">
-        {/* map recorre el arreglo y devuelve una card por actividad */}
         {activities.map((actividad) => (
-          <div className="actividad-card" key={actividad.nombre}>
-            <h2>{actividad.nombre}</h2>
-            <p>{actividad.descripcion}</p>
-
-            <table>
+          // titulo y subtitulo van por props; lo de adentro llega a la Card como children
+          <Card
+            key={actividad.nombre}
+            titulo={actividad.nombre}
+            subtitulo={actividad.descripcion}
+          >
+            <table className="horarios">
               <thead>
                 <tr>
                   <th>Día</th>
@@ -40,13 +42,13 @@ function Actividades() {
               </tbody>
             </table>
 
-            {/* Punto 4: el botón solo se muestra si el usuario está logueado */}
+            {/* el botón solo se muestra si el usuario está logueado */}
             {logueado && (
               <button className="actividad-boton" onClick={() => inscribirse(actividad.nombre)}>
                 Inscribirme
               </button>
             )}
-          </div>
+          </Card>
         ))}
       </div>
     </div>
