@@ -1,0 +1,119 @@
+@use 'sass:meta';
+@use 'variables' as *;
+
+// ===== Estilos para desktop =====
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: $fuente;
+    color: $negro;
+    background-color: $blanco;
+}
+
+// Header, hero, galería y footer comparten el mismo ancho centrado
+.header,
+.hero,
+.galeria,
+.footer {
+    max-width: $ancho-maximo;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+
+    .logo img {
+        height: 32px;
+        display: block;
+    }
+
+    .nav {
+        display: flex;
+        gap: 40px;
+
+        a {
+            color: $gris;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+
+            &:hover {
+                color: $naranja;
+            }
+        }
+    }
+}
+
+.hero {
+    background-color: $naranja;
+    color: $blanco;
+    padding: 60px 120px;
+
+    h1 {
+        font-weight: 500;
+        font-size: 30px;
+        margin: 0 0 30px;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 1.75;
+        max-width: 720px;
+        margin: 0 0 30px;
+    }
+
+    .boton {
+        display: inline-block;
+        background-color: $blanco;
+        color: $negro;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 14px 26px;
+
+        &:hover {
+            background-color: $negro;
+            color: $blanco;
+        }
+    }
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
+
+    img {
+        width: 100%;
+        height: 290px;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.footer {
+    background-color: $negro;
+    color: $blanco;
+    text-align: center;
+    font-size: 13px;
+    padding: 20px;
+    margin-top: 40px;
+
+    p {
+        margin: 0;
+    }
+}
+
+// ===== Estilos para mobile =====
+// Se cargan al final para que pisen a los de desktop.
+// (@use solo puede ir al principio del archivo, por eso se usa meta.load-css)
+@include meta.load-css('mobile');
