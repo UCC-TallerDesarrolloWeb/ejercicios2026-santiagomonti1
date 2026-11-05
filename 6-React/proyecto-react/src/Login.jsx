@@ -1,7 +1,11 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './styles/Login.scss'
 
 function Login() {
+  // useNavigate permite cambiar de ruta desde el código
+  const navigate = useNavigate()
+
   // Estado de los inputs (componentes controlados)
   const [usuario, setUsuario] = useState('')
   const [password, setPassword] = useState('')
@@ -11,6 +15,7 @@ function Login() {
 
     if (usuario === 'admin' && password === 'admin') {
       console.log('Login OK')
+      navigate('/actividades')
     } else {
       console.log('Login Incorrecto')
     }
