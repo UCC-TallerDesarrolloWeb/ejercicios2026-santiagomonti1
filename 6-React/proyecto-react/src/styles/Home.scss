@@ -1,0 +1,41 @@
+$color-texto: #222222;
+$blanco: #ffffff;
+
+.home {
+  padding: 50px 20px;
+}
+
+// 4 cards en fila; en pantallas chicas bajan a otra fila
+.home-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.home-card {
+  background-color: $blanco;
+  width: 260px;
+  border-radius: 10px;
+  overflow: hidden; // para que la imagen respete las esquinas redondeadas
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover; // recorta la imagen sin deformarla
+    display: block;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    color: $color-texto;
+  }
+}
