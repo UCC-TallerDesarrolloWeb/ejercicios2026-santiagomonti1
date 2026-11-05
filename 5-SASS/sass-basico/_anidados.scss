@@ -1,0 +1,57 @@
+// Punto 4 y 5: estilos por anidación (descendientes) en un archivo aparte
+@use 'variables' as *;
+@use 'mixins' as *;
+
+header {
+    @include colores($color-primario, $color-blanco);
+    padding: 20px;
+
+    h1 {
+        margin: 0;
+    }
+
+    nav {
+        margin-top: 10px;
+
+        a {
+            color: $color-claro;
+            text-decoration: none;
+            margin-right: 15px;
+
+            // & hace referencia al selector padre (a:hover)
+            &:hover {
+                color: $color-secundario;
+            }
+        }
+    }
+}
+
+main {
+    padding: 20px;
+
+    .tarjeta {
+        @include colores($color-claro, $color-texto);
+        border-radius: $radio;
+        padding: 15px;
+        margin-bottom: 15px;
+
+        h2 {
+            color: $color-primario;
+            margin-top: 0;
+        }
+
+        .boton {
+            @include colores($color-secundario, $color-blanco);
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: $radio;
+            text-decoration: none;
+        }
+    }
+}
+
+footer {
+    @include colores($color-texto, $color-claro);
+    text-align: center;
+    padding: 10px;
+}
