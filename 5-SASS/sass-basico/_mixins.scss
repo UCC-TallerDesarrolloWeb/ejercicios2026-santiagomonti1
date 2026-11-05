@@ -1,0 +1,5 @@
+// Punto 6: mixin que recibe un color de fondo y un color de letras
+@mixin colores($fondo, $letras) {
+    background-color: $fondo;
+    color: $letras;
+}

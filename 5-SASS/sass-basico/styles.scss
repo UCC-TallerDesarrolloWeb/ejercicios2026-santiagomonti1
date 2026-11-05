@@ -1,0 +1,11 @@
+// Punto 1: archivo principal
+// @use trae los otros archivos. Los que empiezan con "_" (partials) no generan un .css propio.
+@use 'variables' as *;
+@use 'anidados';
+
+// Punto 3: uso de variables en un elemento
+body {
+    font-family: $fuente-base;
+    color: $color-texto;
+    margin: 0;
+}

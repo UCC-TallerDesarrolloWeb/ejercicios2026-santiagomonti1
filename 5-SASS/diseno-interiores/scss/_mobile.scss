@@ -1,0 +1,38 @@
+@use 'variables' as *;
+
+// ===== Estilos para mobile (pantallas de hasta 768px) =====
+@media (max-width: $breakpoint-mobile) {
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 16px;
+
+        .nav {
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .hero {
+        padding: 40px 24px;
+
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+
+    // Las imágenes pasan a una sola columna
+    .galeria {
+        grid-template-columns: 1fr;
+
+        img {
+            height: 220px;
+        }
+    }
+}
