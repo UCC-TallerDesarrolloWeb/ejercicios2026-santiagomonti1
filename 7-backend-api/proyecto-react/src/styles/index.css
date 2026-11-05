@@ -9,3 +9,65 @@ body {
   background-color: #ffffff;
   color: #222222;
 }
+
+/* Botones que se usan en la tienda, el modal y el carrito */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primario {
+  color: #ffffff;
+  background-color: #007bff;
+}
+
+.btn-primario:hover {
+  background-color: #0062cc;
+}
+
+.btn-secundario {
+  color: #007bff;
+  background-color: #ffffff;
+  border-color: #007bff;
+}
+
+.btn-secundario:hover {
+  background-color: #e7f1ff;
+}
+
+.btn-peligro {
+  color: #ffffff;
+  background-color: #dc3545;
+}
+
+.btn-peligro:hover {
+  background-color: #b02a37;
+}
+
+/* Íconos de Google (Material Symbols): tamaño para que queden alineados con el texto */
+.material-symbols-outlined {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Mensaje flotante que aparece al agregar al carrito */
+.toast {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  z-index: 200;
+}

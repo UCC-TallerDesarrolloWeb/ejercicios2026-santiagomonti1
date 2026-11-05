@@ -51,6 +51,11 @@ $blanco: #ffffff;
     }
   }
 
+  // link del carrito: solo un ícono
+  &-carrito {
+    display: flex;
+  }
+
   &-logout {
     background-color: transparent;
     color: $blanco;

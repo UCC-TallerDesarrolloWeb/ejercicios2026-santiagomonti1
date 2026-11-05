@@ -2,10 +2,8 @@ import { useEffect, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import Card from '@components/Card.jsx'
 import { diasSemana } from '@data/actividades.js'
+import { getActivities } from '@api/activities.js'
 import '@styles/Actividades.scss'
-
-// URL del backend mockeado con json-server
-const API_URL = 'http://localhost:4000/activities'
 
 function Actividades() {
   // logueado viene del Layout a través del <Outlet context>
@@ -18,15 +16,11 @@ function Actividades() {
 
   // useEffect con [] se ejecuta una sola vez, cuando se monta el componente
   useEffect(() => {
-    fetch(API_URL)
-      .then((res) => {
-        if (!res.ok) throw new Error(`Error ${res.status}`)
-        return res.json()
-      })
+    getActivities()
       .then((data) => setActivities(data))
       .catch((err) => {
         console.error(err)
-        setError('No se pudieron cargar las actividades. ¿Está corriendo json-server?')
+        setError('No se pudieron cargar las actividades. ¿Está corriendo "npm run services"?')
       })
       .finally(() => setCargando(false))
   }, [])

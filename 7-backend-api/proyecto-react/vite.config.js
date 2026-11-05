@@ -17,6 +17,15 @@ export default defineConfig({
       '@styles': ruta('./src/styles'),
       '@data': ruta('./src/data'),
       '@assets': ruta('./src/assets'),
+      '@api': ruta('./src/api'),
+      '@utils': ruta('./src/utils'),
+    },
+  },
+  server: {
+    // json-server reescribe db.json cada vez que cambia el carrito:
+    // se ignora para que Vite no recargue la página por eso
+    watch: {
+      ignored: ['**/src/data/db.json'],
     },
   },
 })

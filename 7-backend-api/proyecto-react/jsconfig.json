@@ -7,7 +7,9 @@
       "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/styles/*"],
       "@data/*": ["src/data/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@api/*": ["src/api/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "include": ["src"]
